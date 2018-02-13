@@ -17,8 +17,11 @@ class NoteList extends Component {
 }
 
 function mapStateToProps(state) {
+    const notes = state.notes.filter(note =>
+        note.title.toLowerCase().includes(state.searchNote.toLowerCase())
+    );
     return {
-        notes: state.notes
+        notes
     };
 }
 
